@@ -2363,35 +2363,14 @@ p#timer.olderStyle{
 
 
 
-   /* IE10+ specific styles go here */ 
 
 
-    .game {
-      -webkit-transform-style: preserve-3d;
-              transform-style: preserve-3d;
-      -webkit-perspective: 500px;
-              perspective: 500px;
 
-    }
 
-    @-webkit-keyframes matchAnim {
-      0% {
-        background: #bcffcc;
-      }
-      100% {
-        background: transparent;
-      }
-    }
 
-    @keyframes matchAnim {
-      0% {
-        background: #bcffcc;
-      }
-      100% {
-        background: transparent;
-      }
-    }
 
+
+/*
     .card {
 
       -webkit-perspective: 500px;
@@ -2399,7 +2378,9 @@ p#timer.olderStyle{
 
       -webkit-tap-highlight-color: transparent;
     }
+*/
 
+/*
     .card .inside {
 
       -webkit-transform-style: preserve-3d;
@@ -2408,26 +2389,35 @@ p#timer.olderStyle{
       transition: .4s ease-in-out;
 
     }
+*/
+/*
     .card .inside.picked, .card .inside.matched{
       -webkit-transform: rotateY(180deg);
               transform: rotateY(180deg);
     }
+*/
+/*
     .card .inside.matched{
       -webkit-animation: 1s matchAnim ease-in-out;
               animation: 1s matchAnim ease-in-out;
       -webkit-animation-delay: .4s;
               animation-delay: .4s;
     }
+*/
+/*
     .card .front, .card .back{
-/*      border: 1px solid black;*/
+
       -webkit-backface-visibility: visible;
               backface-visibility: visible;
     }
+*/
 
+/*
     .card .front{
       -webkit-transform: rotateY(-180deg);
               transform: rotateY(-180deg);
     }
+*/
 
 
 
@@ -2441,7 +2431,7 @@ p#timer.olderStyle{
 
 
 
-.wrap * {
+.memoryWrap * {
   box-sizing: border-box;
 }
 
@@ -2457,7 +2447,7 @@ body {
 }
 */
 
-.wrap {
+.memoryWrap {
   position: relative;
   height: 100%;
 /*  min-height: 500px;*/
@@ -2490,68 +2480,18 @@ body {
     
     /*    added*/
     height:235px;
-}
-
-/*format for modal popup before game start*/
-.modalContent{
-    padding: 10px 10px 0;
-}
-
-#modal div{
-    padding: 10px 10px 0;
-}
-
-
-/*
-.modalCard{
-    background-color:azure;
-    border-radius: .5em;
     
-}
-*/
-
-.modalCard div {
- 
-   
-
-    position: absolute;
-
-/*
-    width: 100%;
-    height: 100%;
-*/
-    padding: 10px;
-}
-
-.modalCard p {
-margin:5px;
-        background-color:azure;
-    border-radius: .5em;
-    height: 50%;
-
+          -webkit-transform-style: preserve-3d;
+              transform-style: preserve-3d;
+      -webkit-perspective: 500px;
+              perspective: 500px;
 }
 
 
 
-.modalCard img {
-    max-width: 100%; 
-    display: block;
-    margin: 0 auto;
-    max-height: 100%;
-    float: none;
-    position: static;
-}
 
 
 
-.game .card .textContainer {
-
-
-
-    width: 100%;
-    height: 100%;
-    padding: 10px;
-}
 
 
 
@@ -2564,6 +2504,11 @@ margin:5px;
     margin-right:20px;
 /*    visibility:hidden;*/
     z-index: 1;
+}
+
+.size5
+{
+	width:20%;
 }
 
 .size6
@@ -2585,85 +2530,69 @@ margin:5px;
 	width:11.11111%;
 }
 
-
 .card {
   float: left;
-/*6 elements*/
-/*  width: 16.66666%;*/
-  height: 43%;
-/*  padding: 5px;*/
+  height: 40%;
   text-align: center;
   display: block;
-
   position: relative;
   cursor: pointer;
   z-index: 50;
-
-    
-/*    added*/
-/*    height:100%;*/
-
-    
-
+  -webkit-perspective: 500px;
+  perspective: 500px;
+  -webkit-tap-highlight-color: transparent;
 }
 
 .card .inside {
   width: 100%;
   height: 100%;
   display: block;
-
   background: transparent;
+  -webkit-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+  -webkit-transition: .4s ease-in-out;
+  transition: .4s ease-in-out;
+  border-radius: 10px;
 }
 
-
-
 .card .front, .card .back{
-/*  border: 1px solid black;*/
-
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
   padding: 10px;
-    
-    /*    added*/
-    color: #000;
-/*    background: #d0d0d0;*/
-    text-align: center;
-    display: block;
-    line-height: 125%;
-    border-radius: .5em;
+  color: #000;
+  text-align: center;
+  display: block;
+  line-height: 125%;
+  border-radius: .5em;
+  -webkit-backface-visibility: visible;
+          backface-visibility: visible;
 }
-
-/*
-.cardText .front, .cardText .back{
-   padding: 0px; 
-    height: 50px;
-}
-*/
-
 
 .card .front img, .card .back img{
   max-width: 100%;
   display: block;
   margin: 0 auto;
-  max-height: 100%;
-
-/*    added overwrite img styles */    
+/*  max-height: 100%;*/
+  /* overwrite img styles */    
   float: none;
   position: static;
 }
 
-
-/*added ie10 and less fix*/
+.card .front{
+    -webkit-transform: rotateY(-180deg);
+            transform: rotateY(-180deg);
+}
 
 .card .inside.picked, .card .inside.matched{
-/*border:1px solid blue;*/
+    -webkit-transform: rotateY(180deg);
+    transform: rotateY(180deg);
 }
 
 .card .inside .front p{
-/*vertical align fix in ie*/
+/* vertical align fix in ie*/
 /*  word-wrap: break-word;*/
     position: absolute;
     top: 0;
@@ -2673,11 +2602,7 @@ margin:5px;
     width: 100%;
     height: 50%;
     margin: auto;
-/*   border:1px solid green;*/
 }
-
-
-
 
 .card .inside .front p,
 .card .inside .front, 
@@ -2713,9 +2638,29 @@ margin:5px;
 }
 
 .card .inside.matched{
-/*    border:1px solid #eee;*/
+    -webkit-animation: 1s matchAnim ease-in-out;
+            animation: 1s matchAnim ease-in-out;
+    -webkit-animation-delay: .4s;
+            animation-delay: .4s;
 }
 
+@-webkit-keyframes matchAnim {
+    0% {
+        background: #bcffcc;
+    }
+    100% {
+        background: transparent;
+    }
+}
+
+@keyframes matchAnim {
+    0% {
+        background: #bcffcc;
+    }
+    100% {
+        background: transparent;
+    }
+}
 
 .cardInactive img{
     opacity:0.3;
@@ -2729,67 +2674,27 @@ margin:5px;
 
 
 
-/*modal*/
-/*
-.modal-overlay {
-  display: none;
-  background: rgba(0, 0, 0, 0.8);
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index:1000;
+/*format for modal popup before game start*/
+
+.modalContent{
+    padding: 10px 10px 0;
 }
 
-.modal {
-  display: none;
-  position: relative;
-  width: 500px;
-  height: 400px;
-  max-height: 90%;
-  max-width: 90%;
-  min-height: 380px;
-  margin: 0 auto;
-  background: white;
-  top: 50%;
-  -webkit-transform: translateY(-50%);
-          transform: translateY(-50%);
-  padding: 30px 10px;
+.modalContent img{
+    float:none;
 }
-.modal .winner {
-  font-size: 80px;
-  text-align: center;
-  font-family: "Anton", sans-serif;
-  color: #4d4d4d;
-  text-shadow: 0px 3px 0 black;
+
+.modalContent .card .front,
+.modalContent .card .back{
+   position:relative;
 }
-@media (max-width: 480px) {
-  .modal .winner {
-    font-size: 60px;
-  }
+
+.modalContent .topContent p{height: 25px;}
+
+#modal div{
+    padding: 10px 10px 0;
 }
-.modal .restart {
-  font-family: "Anton", sans-serif;
-  margin: 30px auto;
-  padding: 20px 30px;
-  display: block;
-  font-size: 30px;
-  border: none;
-  background: #4d4d4d;
-  background: -webkit-linear-gradient(#4d4d4d, #222);
-  background: linear-gradient(#4d4d4d, #222);
-  border: 1px solid #222;
-  border-radius: 5px;
-  color: white;
-  text-shadow: 0px 1px 0 black;
-  cursor: pointer;
-}
-.modal .restart:hover {
-  background: -webkit-linear-gradient(#222, black);
-  background: linear-gradient(#222, black);
-}
-*/
+
 
 
 

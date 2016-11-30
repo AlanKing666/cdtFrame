@@ -13,7 +13,12 @@
 <script src="../../../SCOFunctions/jquery.min.js"></script>
 <script src="../../../SCOFunctions/featherlight.min.js"></script>
     
+<style>
+/*    .modalContent {   border:1px solid green;}*/
+   
+    
 
+</style>
 
 <body id="screenBody" onload="parent.onFrameLoad();">
 
@@ -24,6 +29,8 @@
                 <div class="t"></div>
                 <h1 class="width50">Memorize Hazard Signs</h1>
                 <p>Can you remember the hazard signs? See if you can memorize each hazard sign. Select item from upper tier to match with item from lower tier. </p>
+                
+
 <!--                <dl class="noteExpand expandMiddle" style="left: 390px; top: 10px; position: absolute; z-index: 3;"><dd class="interact_img"></dd><dt>Interact</dt><dd>Select item from upper tier to match<br />with item from lower tier.</dd></dl>-->
 
 
@@ -39,59 +46,159 @@
 
 
                 
-<div class="wrap">
+                
+                <div class="memoryWrap">
                 
 
            
 
 
-                      <div class="game modalContent"> 
+                    <div class="game">
+                      <div class="modalContent">
                        <h1>Game description</h1>
-                       <p>Can you remember the hazard signs? Take a look at the below hazard signs and see if you can memorize each hazard sign. 
-                       When ready close modal window to begin. You are allowed 9 incorrect selection attempts.</p>
+                       <p>Can you remember the safety signs? Take a look at the below safety symbols and the corresponding safety signs. See if you can memorize each symbol to match each sign. When ready close out popup window to begin activity. Try to match the top level with bottom level. You are allowed 4 incorrect selection attempts.</p>
                        
+
                        
-                        <div class="card modalCard" data-id="1">
+<!--
+                        <div class="card cardTop size4" data-id="1">
+                            <div class="inside picked">
+                                <div class="front"> <img src="../../../media/sign01.png" alt="undefined"> </div>
+              
+                            </div>
+                        </div>
+                        <div class="card cardTop size4" data-id="2">
+                            <div class="inside picked">
+                                <div class="front"> <img src="../../../media/sign02.png" alt="undefined"> </div>
+                     
+                            </div>
+                        </div>
+                        <div class="card cardTop size4" data-id="3">
+                            <div class="inside picked">
+                                <div class="front"> <img src="../../../media/sign03.png" alt="undefined"> </div>
+             
+                            </div>
+                        </div>
+                        <div class="card cardTop size4" data-id="4">
+                            <div class="inside picked">
+                                <div class="front"> <img src="../../../media/sign04.png" alt="undefined"> </div>
                          
-                    
-                            <p>Environmental Hazard </p> 
-                  
-                            <div> 
-                                <img src="../../../media/environmental_hazard.png" alt="environmental hazard">
+                            </div>
+                        </div>
+                        <div class="card cardBottom size4" data-id="1">
+                            <div class="inside picked">
+                                <div class="front"> <img src="../../../media/environmental_hazard.png" alt="undefined"> </div>
+                         
+                            </div>
+                        </div>
+                        <div class="card cardBottom size4" data-id="2">
+                            <div class="inside picked">
+                                <div class="front"> <img src="../../../media/corrosive.png" alt="undefined"> </div>
+                              
+                            </div>
+                        </div>
+                        <div class="card cardBottom size4" data-id="3">
+                            <div class="inside picked">
+                                <div class="front"> <img src="../../../media/gas_under_pressure.png" alt="undefined"> </div>
+                            
+                            </div>
+                        </div>
+                        <div class="card cardBottom size4" data-id="4">
+                            <div class="inside picked">
+                                <div class="front"> <img src="../../../media/acutely_toxic.png" alt="undefined"> </div>
+                          
+                            </div>
+                        </div>
+-->
+                       
+
+                        <div class="card" data-id="1">
+                            <div class="inside picked topContent">
+                                <div class="front">
+                                    <img src="../../../media/sign01a.png" alt="environmental hazard">
+                                </div>
+                            </div>
+                            <div class="inside picked bottomContent">
+                                <div class="front">
+                                    <img src="../../../media/sign01.png" alt="environmental hazard">
+                                </div>
                             </div>
                   
                         </div>
-                        <div class="card modalCard" data-id="2">
-                            <p>Acutely Toxic</p>
-                            <div>  
-                                <img src="../../../media/acutely_toxic.png" alt="acutely toxic">
+                        <div class="card" data-id="2">
+                            <div class="inside picked topContent">
+                                <div class="front">
+                                   <img src="../../../media/sign02a.png" alt="acutely toxic">
+                                </div>
+                            </div>
+                            <div class="inside picked bottomContent">
+                                <div class="front">
+                                    <img src="../../../media/sign02.png" alt="acutely toxic">
+                                </div>
                             </div>
                         </div>
-                        <div class="card modalCard" data-id="3">
-                            <p>Gas Under Pressure</p>
-                            <div> 
-                                <img src="../../../media/gas_under_pressure.png" alt="gas under pressure">
+                        <div class="card" data-id="3">
+                            <div class="inside picked topContent">
+                                <div class="front">
+                                    <img src="../../../media/sign03a.png" alt="gas under pressure">
+                                </div>
+                            </div>
+                            <div class="inside picked bottomContent">
+                                <div class="front">
+                                    <img src="../../../media/sign03.png" alt="gas under pressure">
+                                </div>
                             </div>
                         </div>
                         
-                        <div class="card modalCard" data-id="4">
-                             <p>Corrosive</p>
-                             <div> 
-                                 <img src="../../../media/corrosive.png" alt="corrosive">
+                        <div class="card" data-id="4">
+                            <div class="inside picked topContent">
+                                <div class="front">
+                                    <img src="../../../media/sign04a.png" alt="corrosive">
+                                </div>
+                            </div>
+                             
+                            <div class="inside picked bottomContent">
+                                <div class="front">
+                                     <img src="../../../media/sign04.png" alt="corrosive">
+                                </div>
                              </div>
                         </div>
+                        
+<!--
+                        <div class="card" data-id="5">
+                            <div class="inside picked topContent">
+                                <div class="front">
+                                    <img src="../../../media/sign04a.png" alt="corrosive">
+                                </div>
+                            </div>
+                             
+                            <div class="inside picked bottomContent">
+                                <div class="front">
+                                     <img src="../../../media/sign01.png" alt="corrosive">
+                                </div>
+                             </div>
+                        </div>
+-->
+<!--
                         <div class="card modalCard" data-id="5">
-                            <p>Explosive</p>
-                            <div> 
+                            <div class="topContent">
+                                <img src="../../../media/explosive.png" alt="explosive">
+                            </div>
+                            
+                            <div class="bottomContent"> 
                                 <img src="../../../media/explosive.png" alt="explosive">
                             </div>
                         </div>
                         <div class="card modalCard" data-id="6">
-                            <p>Flammable</p>
-                            <div> 
+                            
+                            <div class="topContent">
+                                <img src="../../../media/flammable.png" alt="flammable">
+                            </div>
+                            <div class="bottomContent"> 
                                 <img src="../../../media/flammable.png" alt="flammable">
                             </div>
                         </div>
+-->
                         
                         
 <!--
@@ -115,11 +222,11 @@
                         </div>
 -->
                         
-
-                      </div>
+                  </div> 
+                </div>
                       <div id="tierImgs" class="notDisplay">
-                         <img src="../../../media/memory.png" alt="back">
-                         <img src="../../../media/memory_q_text.png" alt="back">
+                         <img src="../../../media/top.png" alt="back">
+                         <img src="../../../media/bottom.png" alt="back">
                       </div>
 
 <!--                      <input class="btn restart" id="memoryStart" value="Start" type="button" />-->
@@ -158,16 +265,12 @@
                    
                             <div class="inactive">
                                 <h2>Well done.</h2> 
-                                <p>You had <span></span> incorrect selection attempts. Please continue to next screen.</p>
+                                <p>You had only <span></span> incorrect selection attempts. Please continue to next screen.</p>
                                
                             </div>
                             <div class="inactive">
                                 <p>You are out of attempts. Close window to try again or continue to next screen.</p>
                             </div>
-
-                          
-               
-
                     </div>
                     
                     
@@ -215,7 +318,7 @@
 
             parent.$('.introFx', frame).introFx({
                 'afterFx': function() {
-                    parent.$(".card", frame).memorySort({noOfAttempts: 9});
+                    parent.$(".card", frame).memorySort({attemptLives: 4});
 //                   $('a.fl').featherlight({
 //                        targetAttr: 'href'
 //                    });
