@@ -1,0 +1,91 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+
+<head>
+    <meta http-equiv="Author" content="EssentialSkillz TM" />
+    <meta http-equiv="Description" content="Online training course" />
+    <meta name="Keywords" content="content development tool, health and safety training, risk assessment, online learning" />
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <title>Preloader - gif images - (Apr2015)</title>
+    <link rel="stylesheet" href="../../../SCOFunctions/cdt.css?v=201609141154_887aa927d71dd7a8a895ad69a063845d" type="text/css" media="screen" /> </head>
+
+<body id="screenBody" onload="parent.onFrameLoad();">
+    
+ <script src="../../../SCOFunctions/jquery.min.js"></script>
+<script src="../../../SCOFunctions/featherlight.min.js"></script>  
+
+    
+
+    <div id="whiteBoxWrap" class="introFx fx2 width50">
+        <div class="whiteBox">
+            <div class="boxContent">
+                <div class="t"></div>
+                <h1>Video pop ups</h1>
+                <p>Add preloader class to image if large gif</p>
+                <dl class="noteExpand expandShort">
+                    <dd class="interact_img"></dd><dt>Interact</dt>
+                    <dd>Click on each number for
+                        <br />more information.</dd>
+                </dl>
+            </div>
+            <div class="b">
+                <div></div>
+            </div>
+        </div>
+    </div>
+    <dl class="icons iconsLight whiteboxFeedback">
+        <dt style="left: 600px; top: 20px;" class="introFx fx3">
+            <a href="javascript:void(0);" id="icon2" data-featherlight="#fl1"> 
+                <span class="fader"> 
+                    <img src="../../../media/no_01_up.png" alt="icon" /> 
+                    <img src="../../../media/no_01_hover.gif" class="ImgHover" alt="icon" /> 
+                    <img src="../../../media/no_01a_down.png" class="ImgDown" alt="icon" /> 
+                </span> 
+            </a>
+        </dt>
+	<iframe class="lightbox inactive" src="//player.vimeo.com/video/33110953?&autoplay=1" width="500" height="281" id="fl1" style="border:none;" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+        <dt style="left: 470px; top: 145px;" class="introFx fx4">
+            <a href="javascript:void(0);" id="icon3" data-featherlight="#fl2"> 
+                <span class="fader"> 
+                <img src="../../../media/no_02_up.png" alt="icon" /> 
+                <img src="../../../media/no_02_hover.gif" class="ImgHover" alt="icon" /> 
+                <img src="../../../media/no_02a_down.png" class="ImgDown" alt="icon" /> 
+                </span> 
+            </a>
+        </dt>
+	<iframe class="lightbox inactive" src="//player.vimeo.com/video/82212787?&autoplay=1" width="550" height="330" id="fl2" style="border:none;" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+        <dt style="left: 430px; top: 258px;" class="introFx fx5">
+            <a href="javascript:void(0);" id="icon4" data-featherlight="#fl3"> 
+                <span class="fader"> 
+                    <img src="../../../media/no_03_up.png" alt="icon" /> 
+                    <img src="../../../media/no_03_hover.gif" class="ImgHover" alt="icon" /> 
+                    <img src="../../../media/no_03a_down.png" class="ImgDown" alt="icon" /> 
+                </span> 
+            </a>
+        </dt>
+	<iframe class="lightbox inactive" src="//player.vimeo.com/video/33110953" width="500" height="281" id="fl3" style="border:none;" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+    </dl>
+    
+
+
+    <img src="../../../media/seat_bg.jpg" alt="An office chair." id="bg" class="introFx fx1" height="390" width="675" />
+    <div class="left75" id="loading"></div>
+    <script type="text/javascript">
+        // <![CDATA[
+        var activity = 1;
+        if (parent.$) {
+            var frame = parent.$("#myFrame").contents();
+            parent.$('.introFx', frame).introFx({
+                'afterFx': function () {
+                    //ie8 fix
+                    parent.$('.icons a', frame).icons({
+                        'itemsToEnable': '3'
+                    });
+                }
+            });
+        }
+        // ]]>
+    </script>
+</body>
+
+</html>
