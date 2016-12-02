@@ -43,13 +43,9 @@
                 
                 <div class="memoryWrap">
                 
-
-           
-
-
                     <div class="game"> 
                       <div class="modalContent">
-                       <h1>Game description</h1>
+                       <h1>Test your memory</h1>
                        <p>Can you remember the hazard signs? See if you can memorize each hazard sign to the corresponding text description. When ready close out popup window to begin activity. You then need to select item from upper tier to match with item from lower tier. You are allowed 6 incorrect selection attempts.</p>
                        
                        
@@ -175,7 +171,8 @@
                     
 
                     <div id="modal" class="inactive" >
-                   
+                       
+                        <div class="modalResult">
                             <div class="inactive">
                                 <h2>Well done.</h2> 
                                 <p>You only had <span></span> incorrect selection attempts. Please continue to next screen.</p>
@@ -185,14 +182,24 @@
                                 <p>You are out of attempts. Close window to try again or continue to next screen.</p>
                             </div>
 
-                          
+                       </div>   
                
 
                     </div>
                     
                     
                     
-
+<!--
+                <div class="btn-group">
+					<a class="btn btn-default" href="#" data-featherlight="#fl1">Default</a>
+					<a class="btn btn-default" href="#" data-featherlight="#fl2" data-featherlight-variant="fixwidth">Custom Styles</a>
+					<a class="btn btn-default" href="../assets/images/droplets.jpg" data-featherlight="image">Image</a>
+					<a class="btn btn-default" href="#" data-featherlight="#fl3">iFrame</a>
+					<a class="btn btn-default" href="index.html .ajaxcontent" data-featherlight="ajax">Ajax</a>
+				</div>
+                    
+  <iframe class="lightbox inactive" src="//player.vimeo.com/video/82212787" width="500" height="281" id="fl3" style="border:none;" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+-->
                     
 
                     
@@ -226,7 +233,11 @@
             parent.$('.introFx', frame).introFx({
                 'afterFx': function() {
                     parent.$(".card", frame).memorySort({attemptLives: 6});
-
+//                   $('a.fl').featherlight({
+//                        targetAttr: 'href'
+//                    });
+                    //$.featherlight($('#targetElement'));
+                    //$.featherlight({iframe: '//player.vimeo.com/video/33110953?&autoplay=1', iframeWidth: 500, iframeHeight: 300});
                     
                     
                     
@@ -239,7 +250,10 @@
 
 </html>
 
+<!--
 
+<iframe width="665" height="385" id="player1" src="//player.vimeo.com/video/190739438?api=1?api=1&amp;player_id=player1&amp;autoplay=0" frameborder="0" allowfullscreen="" webkitallowfullscreen="" mozallowfullscreen=""></iframe>
+-->
 
 
             
