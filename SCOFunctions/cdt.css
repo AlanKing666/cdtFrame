@@ -1067,6 +1067,7 @@ div#sortWrap ol li.numberStyle:before{
 
 div#sortWrap ol li.itemCorrectStyle{
     background: #daeaef url(../common_images/tick_small.png) no-repeat 99% 50%;
+	color:#178;
 }
 
 /* Connected Sort Lists */
@@ -1082,6 +1083,7 @@ div#sortConnectedListWrap {
 
 div#sortConnectedListWrap.reducedHeight{height:185px;}
 div#sortConnectedListWrap .listWithHeader ul li {background: #d0d0d0;}
+div#sortConnectedListWrap .listWithHeader h3 {color: #178;}
 
 div#sortConnectedListWrap .listWithHeader ul{
     min-height: 20px;
@@ -1101,12 +1103,14 @@ div#sortConnectedListWrap ul li.itemCorrectStyle{
     background: #daeaef url(../common_images/tick_small.png) no-repeat 98% 50%;
     background-size: 14px 14px;
     padding-right:20px;
+	color:#178;
 }
 
 div#sortWrap ol li.allCorrectStyle,
 div#sortConnectedListWrap ul li.allCorrectStyle{
     background-color: #daeaef;
     background-image: none;
+	color:#178;
 }
 
 /* Two column sort to match (Image) */
@@ -1206,7 +1210,7 @@ div#matchWrap.sortWrapText{
 
 div#matchWrap.sortWrapText ul li 
 {
-    color: #000;
+    color: #178;
     padding: 4px 10px 5px 10px;
     text-align: left;
     float:none;
