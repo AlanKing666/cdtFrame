@@ -2367,15 +2367,7 @@ p#timer.olderStyle{
 
 
 
-
-
-
-
-
-
-
-
-
+/* Memory game */
 
 /*
     .card {
@@ -2483,17 +2475,23 @@ body {
     
   display:none;
   min-height: 100%;
-  height: 100%;
-    
+/*  height: 100%;*/
+
+
     
     /*    added*/
-    height:235px;
-    width: 540px;
+    height:180px;
+    float:left;
+/*    width: 540px;*/
+/*    stops animation from exceeding boundaries*/
+        width: 500px; 
     
           -webkit-transform-style: preserve-3d;
               transform-style: preserve-3d;
       -webkit-perspective: 500px;
               perspective: 500px;
+    
+/*    border:1px solid red;*/
 }
 
 
@@ -2542,7 +2540,7 @@ body {
 
 .card {
   float: left;
-  height: 40%;
+  height: 50%;
   text-align: center;
   display: block;
   position: relative;
@@ -2551,6 +2549,8 @@ body {
   -webkit-perspective: 500px;
   perspective: 500px;
   -webkit-tap-highlight-color: transparent;
+    
+/*    border: 1px solid blue;*/
 }
 
 .card .inside {
@@ -2681,6 +2681,41 @@ body {
 }
 
 
+/* SVG 'lives' countdown */
+.memoryCountdown {
+    position: relative;
+    float: left;
+/*    padding:40px 5px 0px 10px;*/
+    padding: 50px 10px 0px 10px;
+    display:none;
+  
+}
+
+.memoryCountdown h2 {
+    text-align: center;
+    position: absolute;
+    line-height: 82px;
+    width: 85%;
+    font-size: 180%;
+    z-index: 1;
+}
+
+.memoryCountdown svg {
+/*
+   -webkit-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+*/
+    height:80px;
+    width:80px;
+}
+
+.memoryCountdown .memoryCircle {
+  stroke-dasharray: 189; /* this value is the pixel circumference of the circle */
+  stroke-dashoffset: 189;
+  transition: all 1s linear;
+}
+
+
 
 
 
@@ -2690,16 +2725,32 @@ body {
     padding: 10px 10px 0;
 }
 
+.modalContent h1{
+    font-size: 1.4em;
+    font-weight: normal;
+}
+
+.modalContent .card{
+    background-color:#e9eaec;
+    border-radius: 10px;
+    padding: 10px;
+    border: 1px solid #fff;
+}
+
 .modalContent img{
     float:none;
 }
 
+.modalContent p{line-height: 150%;}
+
 .modalContent .card .front,
 .modalContent .card .back{
    position:relative;
+   padding:0px;
 }
 
-.modalContent .topContent p{height: 25px;}
+.modalContent .topContent p{height: 25px;font-weight: bold;line-height: 130%;}
+
 
 .modalResult div{
     padding: 10px 10px 0;
@@ -2842,42 +2893,4 @@ body {
 		padding: 10px 10px 0;
 		border-bottom: 10px solid transparent;
 	}
-}
-
-
-
-/*SVG*/
-
-.memoryCountdown {
-    position: relative;
-    float: left;
-    padding:55px 5px 0px 10px;
-    display:none;
-}
-
-.memoryCountdown h2 {
-/*
-    text-align:center;
-    position: absolute;
-    line-height: 125px;
-    width: 100%;
-*/
-    
-    text-align: center;
-    position: absolute;
-    line-height: 82px;
-    width: 85%;
-    font-size: 180%;
-    z-index: 1;
-}
-
-.memoryCountdown svg {
-   -webkit-transform: rotate(-90deg);
-    transform: rotate(-90deg);
-}
-
-.memoryCountdown .memoryCircle {
-  stroke-dasharray: 189; /* this value is the pixel circumference of the circle */
-  stroke-dashoffset: 189;
-  transition: all 1s linear;
 }
