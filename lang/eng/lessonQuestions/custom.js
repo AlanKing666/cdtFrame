@@ -9,9 +9,9 @@ var nextLessonButtonAlt = 'Launch next lesson';
 var endMessageAssessment = 'Click to start the %linked%';
 var congratulationLinkedAssessmentHeader = 'Risk Assessment';
 var congratulationLinkedSurveyHeader = 'Survey';
-var noOfScreens = 2;
+var noOfScreens = 3;
 var loadBookmarkText = 'Would you like to go to the last bookmarked screen in this lesson?';
-var currentLessonNo = 5;
+var currentLessonNo = 6;
 
 var i18n = {
 "_GiveupButton": "Giveup",
