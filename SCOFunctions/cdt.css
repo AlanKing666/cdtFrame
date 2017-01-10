@@ -2367,60 +2367,6 @@ p#timer.olderStyle{
 
 
 
-/* Memory game */
-
-/*
-    .card {
-
-      -webkit-perspective: 500px;
-              perspective: 500px;
-
-      -webkit-tap-highlight-color: transparent;
-    }
-*/
-
-/*
-    .card .inside {
-
-      -webkit-transform-style: preserve-3d;
-              transform-style: preserve-3d;
-      -webkit-transition: .4s ease-in-out;
-      transition: .4s ease-in-out;
-
-    }
-*/
-/*
-    .card .inside.picked, .card .inside.matched{
-      -webkit-transform: rotateY(180deg);
-              transform: rotateY(180deg);
-    }
-*/
-/*
-    .card .inside.matched{
-      -webkit-animation: 1s matchAnim ease-in-out;
-              animation: 1s matchAnim ease-in-out;
-      -webkit-animation-delay: .4s;
-              animation-delay: .4s;
-    }
-*/
-/*
-    .card .front, .card .back{
-
-      -webkit-backface-visibility: visible;
-              backface-visibility: visible;
-    }
-*/
-
-/*
-    .card .front{
-      -webkit-transform: rotateY(-180deg);
-              transform: rotateY(-180deg);
-    }
-*/
-
-
-
-
   
 
 
@@ -2434,17 +2380,7 @@ p#timer.olderStyle{
   box-sizing: border-box;
 }
 
-/*
-html, body {
-  height: 100%;
-}
 
-body {
-  background: black;
-  min-height: 100%;
-  font-family: "Arial", sans-serif;
-}
-*/
 
 .memoryWrap {
   position: relative;
@@ -2456,20 +2392,7 @@ body {
     overflow:hidden;
 }
 
-/*
-.gameText {
-  -webkit-transform-style: preserve-3d;
-          transform-style: preserve-3d;
-  -webkit-perspective: 500px;
-          perspective: 500px;
-  min-height: 100%;
-  height: 100%;
-    
-        added
-    height:50px;
-    display:block;
-}
-*/
+
 
 .game {
     
@@ -2551,6 +2474,7 @@ body {
   -webkit-tap-highlight-color: transparent;
     
 /*    border: 1px solid blue;*/
+padding:0px 1px;
 }
 
 .card .inside {
@@ -2562,7 +2486,7 @@ body {
   transform-style: preserve-3d;
   -webkit-transition: .4s ease-in-out;
   transition: .4s ease-in-out;
-  border-radius: 10px;
+/*  border-radius: 10px;*/
 }
 
 .card .front, .card .back{
@@ -2571,7 +2495,7 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
-  padding: 10px;
+  padding: 7px;
   color: #000;
   text-align: center;
   display: block;
@@ -2588,7 +2512,12 @@ body {
 /*  max-height: 100%;*/
   /* overwrite img styles */    
   float: none;
+    
   position: static;
+    
+/*    added*/
+/*    position: relative;*/
+
 }
 
 .card .front{
@@ -2605,7 +2534,7 @@ body {
 /* vertical align fix in ie*/
 /*  word-wrap: break-word;*/
     position: absolute;
-    top: 0;
+    top: 15%;
     bottom: 0;
     left: 0;
     right: 0;
@@ -2652,6 +2581,7 @@ body {
             animation: 1s matchAnim ease-in-out;
     -webkit-animation-delay: .4s;
             animation-delay: .4s;
+    
 }
 
 @-webkit-keyframes matchAnim {
@@ -2668,9 +2598,33 @@ body {
         background: #bcffcc;
     }
     100% {
-        background: transparent;
+        background-color:#e9eaec;
     }
 }
+
+.card.cardBottom .inside.matched,
+.card.cardTop .inside.matched{
+    background-color:#e9eaec;
+}
+
+.card.cardBottom .inside.matched{
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+.card.cardTop .inside.matched{
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+/*
+.card.cardTop .inside.matched{
+    margin-top: 20px;
+}
+*/
+ 
+
+
 
 .cardInactive img{
     opacity:0.3;
