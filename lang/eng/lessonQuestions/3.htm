@@ -141,7 +141,7 @@ div.questionResult{
 
 /*progressbar*/
 #progressbar {
-	margin-bottom: 30px;
+	/*margin-bottom: 30px;*/
 	/*overflow: hidden;*/
 	/*CSS counters to number the steps*/
 	counter-reset: step;
@@ -192,7 +192,7 @@ div.questionResult{
 	background: #e2f2fa;
 	position: absolute;
 	left: 0%;
-	top: 45px;
+	top: 30px;
 }
 #progressbar li:first-child:after {
 	/*connector not needed before the first step*/
@@ -278,6 +278,20 @@ div.questionBox ul li label.isSelected {
 
 .circle {display:block;}
 
+/*diabled labels state*/
+label.btn.label-disabled{
+    box-shadow: 0 0;
+    top: 3px;
+    cursor: default;	
+}
+
+label.btn.label-disabled:hover{
+    box-shadow: 0 0;
+    top: 3px;
+    cursor: default;	
+}
+
+
 /*#passRateCircle{display:none;}*/
 
 </style>
@@ -304,12 +318,12 @@ Otherwise, please continue.</p>
             <div class="boxContent">
                 <div class="t"></div>
 					<ul id="progressbar">
-                        <li class="active size6">Legislation</li>
-                        <li class="size6">Supervisory Authorities</li>
-                        <li class="size6">Due Diligence</li>
-                        <li class="size6">PEP</li>
-                        <li class="size6">MLRO</li>
-                        <li class="size6">Tipping off</li>
+                        <li class="active size6"></li>
+                        <li class="size6"></li>
+                        <li class="size6"></li>
+                        <li class="size6"></li>
+                        <li class="size6"></li>
+                        <li class="size6"></li>
                   </ul>
                  <div style="clear:both"></div>
                 <div id="questionSlider optionsList selectLabels">
@@ -333,7 +347,10 @@ Otherwise, please continue.</p>
                                 <label for="answer4" class="btn">They can only advise organisations on best practice, for example by carrying out an audit.</label>
                             </li>
                         </ul>
-						<input type="submit" name="submit" class="btn action-button questionBtn float-right marginRightAlign" disabled="disabled" value="Submit" />
+                        <div class="button-wrap-right marginRightAlign">
+							<input type="submit" name="submit" class="action-button questionBtn" disabled="disabled" value="Submit" />
+							<input type="submit" name="submit" class="action-button inactive questionNext" disabled="disabled" value="Next" />
+						</div>
                     </div>
                     <div class="questionBox inactive">
                         <h2>Q2. Which of the following is true of the role of Supervisory Authorities (SA)?</h2>
@@ -356,7 +373,10 @@ Otherwise, please continue.</p>
                             </li>
 
                         </ul>
-						<input type="submit" name="submit" class="btn action-button questionBtn float-right marginRightAlign" disabled="disabled" value="Submit" />
+					    <div class="button-wrap-right marginRightAlign">
+							<input type="submit" name="submit" class="action-button questionBtn" disabled="disabled" value="Submit" />
+							<input type="submit" name="submit" class="action-button inactive questionNext" disabled="disabled" value="Next" />
+						</div>
                     </div>
                     <div class="questionBox inactive">
                     <h2>Q3. The circumstances around a potential new customer lead you to believe the risk of money laundering might be higher than normal. Which type of Customer Due Diligence process would you follow?</h2>
@@ -374,7 +394,10 @@ Otherwise, please continue.</p>
                             <label for="answer11" class="btn">Enhanced Customer Due Diligence. </label>
                         </li>
 					</ul>
-					<input type="submit" name="submit" class="btn action-button questionBtn float-right marginRightAlign" disabled="disabled" value="Submit" />
+					 <div class="button-wrap-right marginRightAlign">
+						<input type="submit" name="submit" class="action-button questionBtn" disabled="disabled" value="Submit" />
+						<input type="submit" name="submit" class="action-button inactive questionNext" disabled="disabled" value="Next" />
+					</div>
                     </div>
                     <div class="questionBox inactive">
                         <h2>Q4. A PEP who was previously accepted as a client makes an unusual transaction. What should you do?</h2>
@@ -392,7 +415,10 @@ Otherwise, please continue.</p>
                                 <label for="answer14" class="btn">Call the client to ask about the transaction.</label>
                             </li>
                         </ul>
-						<input type="submit" name="submit" class="btn action-button questionBtn float-right marginRightAlign" disabled="disabled" value="Submit" />
+					 <div class="button-wrap-right marginRightAlign">
+						<input type="submit" name="submit" class="action-button questionBtn" disabled="disabled" value="Submit" />
+						<input type="submit" name="submit" class="action-button inactive questionNext" disabled="disabled" value="Next" />
+					</div>
                     </div>
                      <div class="questionBox inactive">
                         <h2>Q5. Which of the following is <strong>not</strong> a role of the MLRO? (There are 3 correct answers)</h2>
@@ -414,7 +440,10 @@ Otherwise, please continue.</p>
                                 <label for="answer18" class="btn">To visit the suspect's premises and interview them about their criminal activities.</label>
                             </li>
                         </ul>
-						<input type="submit" name="submit" class="btn action-button questionBtn float-right marginRightAlign" disabled="disabled" value="Submit" />
+					 <div class="button-wrap-right marginRightAlign">
+						<input type="submit" name="submit" class="action-button questionBtn" disabled="disabled" value="Submit" />
+						<input type="submit" name="submit" class="action-button inactive questionNext" disabled="disabled" value="Next" />
+					</div>
                     </div>
                     <div class="questionBox inactive">
                         <h2>Q6. Which one of the following is <strong>not</strong> an example of tipping off?</h2>
@@ -436,7 +465,10 @@ Otherwise, please continue.</p>
                                 <label for="answer22" class="btn">Asking a potential client for more information about the reasons for a transaction.</label>
                             </li>
                         </ul>
-						<input type="submit" name="submit" class="btn action-button questionBtn float-right marginRightAlign" disabled="disabled" value="Submit" />
+					 <div class="button-wrap-right marginRightAlign">
+						<input type="submit" name="submit" class="action-button questionBtn" disabled="disabled" value="Submit" />
+						<input type="submit" name="submit" class="action-button inactive questionNext" disabled="disabled" value="Next" />
+					</div>
                     </div>
                     <div class="questionResult inactive">
                     	<div class="circle width25 float-left" id="passRateCircle"></div>
