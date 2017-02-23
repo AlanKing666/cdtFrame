@@ -6,57 +6,44 @@
     <meta http-equiv="Description" content="Online training course" />
     <meta name="Keywords" content="content development tool, health and safety training, risk assessment, online learning" />
     <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
-    <title>Introfx textbox left fade In - (Apr2015)</title>
-    <link rel="stylesheet" href="../../../SCOFunctions/cdt.css?v=201605051448_887aa927d71dd7a8a895ad69a063845d" type="text/css" media="screen" />
+    <title>Checkboxes layout left - (Apr2015)</title>
+    <link rel="stylesheet" href="../../../SCOFunctions/cdt.css?v=201612221530_887aa927d71dd7a8a895ad69a063845d" type="text/css" media="screen" />
 </head>
 
 <body id="screenBody" onload="parent.onFrameLoad();">
-
-    <style>
-        .feedback {
-            display: none;
-            color: #4d4d4d;
-            padding: 10px 15px;
-            border-radius: 5px;
-        }
-        
-        .incorrect {
-            background-color: #ffdcdc;
-        }
-        
-        .correct {
-            background-color: #dbffde;
-        }
-    </style>
-
-    <div class="width65 introFx fx2" id="whiteBoxWrap">
+    <div class="width55 introFx fx2" id="whiteBoxWrap">
         <div class="whiteBox">
             <div class="boxContent">
                 <div class="t"></div>
-                <h1>Protect yourself and others</h1>
-                <p>If you don’t have a tissue, how should you cough or sneeze?</p>
-                <dl class="noteExpand expandShort">
-                    <dd class="interact_img"></dd><dt>Interact</dt>
-                    <dd>Select one answer.</dd>
+                <h1>Question</h1>
+                <p>Which of the following promote sitting correctly?</p>
+                <dl class="noteExpand expandMiddle">
+                    <dd class="interact_img"></dd>
+                    <dt>Interact</dt>
+                    <dd>Click on the checkboxes beside the correct statements. (Hint: 3 are correct)</dd>
                 </dl>
                 <div class="questionBox">
-                    <ul style="margin: 0px; padding: 0px; border: 1px solid #ffffff; line-height: 1.2em;">
+                    <ul class="spcBullets" style="margin: 0px; padding: 0px; border: 1px solid #ffffff; line-height: 1.2em;">
                         <li>
-                            <input name="a" title="Click if this is true." class="answer specific" id="answer1" type="radio" value="on" rel="correct" />
-                            <label for="answer1">Into the inner crook of your elbow.</label>
-                            <div id="01_feedback" class="feedback correct">Yes, if you don't have tissues with you, you can sneeze into the crook of your elbow. Just make sure you put that clothing into the wash at night.</div>
+                            <input name="a" title="Click if this is true." class="answer" id="answer1" type="checkbox" value="on" data="correct" />
+                            <label for="answer1">When your chair is set at the correct height, your wrists and forearms are horizontal with the desk and keyboard.</label>
                         </li>
                         <li>
-                            <input name="a" title="Click if this is true." class="answer specific" id="answer2" type="radio" value="on" rel="incorrect" />
-                            <label for="answer2">Into your hand</label>
-                            <div id="02_feedback" class="feedback incorrect">It’s better to keep that stuff off your hands. Otherwise, your dirty hand will touch a door knob or elevator button. Some unlucky person will touch that knob or button, and now he's got it. The nasty cycle of the flu virus spreads on.</div>
+                            <input name="a" title="Click if this is true." class="answer" id="answer2" type="checkbox" value="on" data="incorrect" />
+                            <label for="answer2"> When your chair is set at the correct height, your feet should be resting just above the floor. </label>
                         </li>
                         <li>
-                            <input name="a" title="Click if this is true." class="answer specific" id="answer3" type="radio" value="on" rel="incorrect" />
-                            <label for="answer3">With your head turned to the side.</label>
-                            <div id="03_feedback" class="feedback incorrect">A sneeze may be annoying, but it is good for you. The only problem is that these sneezes can spread germs to others around you. Be careful to catch your sneeze.</div>
+                            <input name="a" title="Click if this is true." class="answer" id="answer3" type="checkbox" value="on" data="correct" />
+                            <label for="answer3">Clutter under the desk can cause you to sit awkwardly. </label>
+                        </li>
+                        <li>
+                            <input name="a" title="Click if this is true." class="answer" id="answer4" type="checkbox" value="on" data="correct" />
+                            <label for="answer4">The chair&rsquo;s backrest should support the lower inward curve of your back.</label>
                         </li>
                     </ul>
+                    <div class="button-wrap-right marginRightAlign">
+
+                    </div>
                 </div>
                 <div class="cleaner"></div>
             </div>
@@ -65,25 +52,41 @@
             </div>
         </div>
     </div>
-    <img width="675" height="390" class="introFx fx1" id="bg" alt="A man at a desk, not feeling well" src="../../../media/flu.jpg" />
+    <div class="whiteboxFeedback">
+        <div class="final_result" id="correct" style="left: 20px; top: 20px; width: 100px;">
+            <span>Correct.</span>
+            <br />Please&nbsp;continue.
+        </div>
+        <div class="final_result" id="incorrect" style="left: 20px; top: 20px; width: 200px;">
+          <div title="Close" class="closeWindow closeEnableQuestion">close<span></span></div>
+          <span>Incorrect.</span>
+            <br>Try again. Feedback enabled for incorrect question screens. Close box to try&nbsp;again.
+             <br /> <span class="attemptText">Attempts remaining: <span id="attempts"></span></span>
+             
+        </div>
+        <div id="attemptsOver" style="left: 20px; top: 20px; width: 600px;">
+        <div class="closeWindow" title="Close">close<span></span></div>
+        <span>Out of attempts.</span><br /> <strong>Review screen for correct answers.</strong><br /> If you apply these steps when you are using resources, you will go a long way to helping the workplace.</div>
+
+    </div>
+    <img width="675" height="390" class="introFx fx1" id="bg" alt="A lit lightbulb." src="../../../media/question_background.jpg" />
     <script type="text/javascript">
-        // <![CDATA[
-        var activity = 1;
-        if (parent.$) {
-            var frame = parent.$("#myFrame").contents();
-            parent.$(".hotspotsMinor a", frame).hotspotMinor();
-            parent.$('.introFx', frame).introFx({
-                'afterFx': function () {
-
-
-                    parent.$(".answer", frame).questionsImmediateFeedback({
-                        'answersCount': '1',
-                        'immediate_fdbck': true
-                    });
-                }
-            });
-        }
-        // ]]>
+    // <![CDATA[
+    var activity = 1;
+    if (parent.$) {
+        var frame = parent.$("#myFrame").contents();
+        parent.$('.introFx', frame).introFx({
+            'afterFx': function() {
+                parent.$(".answer", frame).questions({
+                    'answersCount': '3',
+                    'type': 'modal',
+                    'displayIncorrect': true,
+                    'noOfAttempts': 3
+                });
+            }
+        });
+    }
+    // ]]>
     </script>
 </body>
 

@@ -8,313 +8,11 @@
     <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
     <title>CDT frame updates document</title>
     <link rel="stylesheet" href="../../../SCOFunctions/cdt.css?v=201612221530_887aa927d71dd7a8a895ad69a063845d" type="text/css" media="screen" />
+    <link rel="stylesheet" href="../../../SCOFunctions/featherlight.min.css" type="text/css" media="screen" />
     <script src="../../../SCOFunctions/jquery.min.js" type="text/javascript"></script>
     <script src="../../../SCOFunctions/featherlight.min.js" type="text/javascript"></script>
     <script src="../../../SCOFunctions/circles.min.js" type="text/javascript"></script>
 </head>
-
-<style type="text/css">
-/*.action-button {
-    background-color: #6EC0E6;
-    border: 1px solid #589AB8;
-    width: auto;
-    font-size: 90%;
-    color: #fff;
-    border-radius: 3px;
-    cursor: pointer;
-    padding: 6px 18px;
-  }*/
-
-.action-button {
-    /*border-color: #6EC0E6;*/
-    border: 1px solid #589AB8;
-    background-color: #6EC0E6;
-    width: auto;
-    font-size: 90%;
-    color: #fff;
-    border-radius: 3px;
-    cursor: pointer;
-    padding: 6px 18px;
-/*    color: #8898a4;*/
-    font-weight: bold;
-    transition: background 0.5s ease-in-out;
-/*    float:right;*/
-	margin:1px;
-}
-
-.action-button:hover, .action-button:focus {
-    border-color: #6ec0e6;
-    background-color: #8bcdeb; 
-    color:#fff;
-    transition: background-color 0.5s ease;
-    outline: none;
-}
-
-.action-button:disabled{
-    opacity: 0.65; 
-    cursor: not-allowed;
-	background-color: #fbfdfd;
-	color: #8898a4;
-	border: 1px solid #eee;
-}
-
-.button-wrap-right{float:right;}
-
-
-
-
-
-.panel-bg-color {
-    background: #FBFBFB;
-}
-.modalPanel {
-    width: 100%;
-    /*padding: 40px 0;*/
-    /*text-align: center;*/
-    position: relative;
-    border: 1px solid #e0e0e0;
-}
-
-/*from memorySort*/
-.modalContent p{
-    color: #666;
-}
-
-
-
-
-/*amended make new classes*/
-div.questionBox ul li {
-    margin: 0px;
-    background: none;
-}
-
-ul li {
-    background: url(../common_images/list_item_bullet.gif) 0 .2em no-repeat;
-    list-style: none;
-    padding-left: 20px; 
-    padding: 0px 0px 8px 0px;
-}
-
-div.questionBox ul li label {
-    padding-left: 20px; 
-    display: block;
-    font-weight: bold;
-    /*added*/
-    text-align: left;
-}
-
-/*width on input ie8*/
-input + label.btn {
-    position: relative;
-    -webkit-transition: all 0.2s;
-    -moz-transition: all 0.2s;
-    transition: all 0.2s;
-    box-shadow: 0 2px #c0d1dc;
-    cursor: pointer;
-}
-
-.btn {
-
-     white-space: normal; 
-
-}
-
-
-
-
-
-.float-right{float:right;}
-.float-left{float:left;}
-
-/*customise*/
-div.questionBox ul li input {
-    width: 0px;
-}
-div.questionBox, div.questionResult{
-	margin-top: 15px;
-}
-div.questionResult{
-	margin:25px;
-}
-
-
-/*progressbar*/
-#progressbar {
-	/*margin-bottom: 30px;*/
-	/*overflow: hidden;*/
-	/*CSS counters to number the steps*/
-	counter-reset: step;
-}
-#progressbar li {
-	list-style-type: none;
-	color: #b1bfc6;
-	text-align:center;
-	font-size: 90%;
-	list-style-type: none;
-	color: #86cbeb;
-/*	text-transform: uppercase;*/
-	font-size: 9px;
-/*	width: 33.33%;*/
-	float: left;
-	position: relative;
-	/*z-index: 1; */
-}
-#progressbar li:before {
-	content: counter(step);
-	counter-increment: step;
-	/*width: 20px;*/
-	width: 100%;
-	line-height: 20px;
-	display: block;
-	font-size: 10px;
-	color: #fff;
-	background: #e2f2fa;
-	/*border-radius: 12px;*/
-	/*margin: 0 auto 5px auto;*/
-	font-weight:bold;
-}
-
-#progressbar li:first-child:before{
-	border-top-left-radius: 2em;
-	border-bottom-left-radius: 2em;
-}
-
-#progressbar li:last-child:before{
-	border-top-right-radius: 2em;
-	border-bottom-right-radius: 2em;
-}
-
-
-/*progressbar connectors*/
-/*#progressbar li:after {
-	content: '';
-	width: 100%;
-	height: 2px;
-	background: #e2f2fa;
-	position: absolute;
-	left: -50%;
-	top: 9px;
-	z-index: -1; 
-}*/
-
-/*#progressbar li:after {
-	content: '';
-	width: 100%;
-	height: 6px;
-	background: #e2f2fa;
-	position: absolute;
-	left: 0%;
-	top: 30px;
-}*/
-#progressbar li:first-child:after {
-	/*connector not needed before the first step*/
-	/*content: none; */
-}
-/*marking active/completed steps green*/
-/*The number of the step and the connector before it = green*/
-#progressbar li.active:before,  #progressbar li.active:after{
-/*background: #6ec0e6;
-color:#fff;
-transition:  .5s ease-in-out;
--moz-transition: .5s ease-in-out;
--webkit-transition: .5s ease-in-out;
-
-transition: background 2s;*/
-color:#fff;
-background-image: linear-gradient(to left,
-                                      #6ec0e6,
-                                      #6ec0e6 50%,
-                                      transparent 50%,
-                                      transparent);
- background-position: -100% 0;
- background-size: 200% 100%;
- transition: all 0.5s ease-in-out;
-}
-
-#progressbar li.correct:before {
-	content: '\2713';
-	background: #d8f6c9;
-	color:#6dbe45;
-
-}
-
-#progressbar li.incorrect:before {
-	content: ' \2716';
-	background: #ffe9e9;
-	color: #f69898;
-
-
-}
-
-#progressbar li.correct
- {
-	color: #6dbe45;
-}
-
-#progressbar li.incorrect{
-	color: #f69898;
-}
-
-.circleText {
-    font-weight: bold;
-    position: absolute;
-    top: 6px;
-    text-align: center;
-    width: 100%;
-    font-size: 18px;
-    line-height: 88px;
-    font-family: Verdana, Geneva, sans-serif;
-}
-
-.marginRightAlign{margin-right:10px;}
-
-div.questionBox ul li label {
-    background-color: #e2f2fa;
-}
-
-div.questionBox ul li label.isSelected.optionsListCorrect {
-    background-color: #d8f6c9;
-    border: 1px solid #6dbe45;
-    transition: background 0.5s ease-in-out;
-}
-
-div.questionBox ul li label.isSelected.optionsListIncorrect {
-    background-color: #fdbfbf;
-    border: 1px solid #f69898;
-    transition: background 0.5s ease-in-out;
-}
-
-
-
-
-input + label.btn.isSelected {
-    border: 1px solid #c0d1dc;
-}
-
-div.questionBox ul li label.isSelected {
-    background-color: #f4fbff;
-}
-
-.circle {display:block;}
-
-/*diabled labels state*/
-label.btn.label-disabled{
-    box-shadow: 0 0;
-    top: 3px;
-    cursor: default;	
-}
-
-label.btn.label-disabled:hover{
-    box-shadow: 0 0;
-    top: 3px;
-    cursor: default;	
-}
-
-
-/*#passRateCircle{display:none;}*/
-
-</style>
 
 <body id="screenBody" onload="parent.onFrameLoad();">
     
@@ -322,22 +20,22 @@ label.btn.label-disabled:hover{
     <div class="modalContent inactive" style="width:400px">
     
         <h1 class="modalHeader">Lesson questions</h1>
-    	
-    	<p>You are now required to answer six test questions on the material covered just in this lesson. You must answer five questions correctly in order to proceed.
+        
+        <p>You are now required to answer six test questions on the material covered just in this lesson. You must answer five questions correctly in order to proceed.
 If you do not answer five questions correctly, you will have the opportunity to review this section of the lesson once again and retake the same test questions. You might prefer to review the lesson before you take the test if you are unsure about anything.
 Otherwise, please continue.</p>
 
-		<div class="button-wrap-right">
-            <input type="submit" name="submit" class="submit verify action-button" value="Review Lesson" onclick="parent.currentScreenNo = parent.noOfScreens-parent.noOfScreens; parent.goNext(true);return false;"/>
-            <input type="button" name="previous" class="back action-button" value="Continue" />
-  		</div>
+        <div class="float-right">
+            <input type="submit" name="submit" class="btn submit action-button" value="Review Lesson" onclick="parent.currentScreenNo = parent.noOfScreens-parent.noOfScreens; parent.goNext(true);return false;"/>
+            <input type="button" name="previous" class="btn back action-button" value="Continue" />
+        </div>
     </div>
 
     <div class="width100 introFx fx2" id="whiteBoxWrap">
         <div class="whiteBox">
             <div class="boxContent">
                 <div class="t"></div>
-					<ul id="progressbar">
+                    <ul id="progressbar">
                         <li class="active size6"></li>
                         <li class="size6"></li>
                         <li class="size6"></li>
@@ -346,169 +44,169 @@ Otherwise, please continue.</p>
                         <li class="size6"></li>
                   </ul>
                  <div style="clear:both"></div>
-                <div id="questionSlider optionsList selectLabels">
+                <div class="questionSlider optionLabels">
                     <div class="questionBox">
                         <h2>Q1. Why are there additional requirements in anti-terrorism, proceeds of crime and money laundering legislation for businesses in the regulated sector?</h2>
                         <ul>
                             <li>
-                                <input name="a" title="Click if this is true." class="answer" id="answer1" type="radio" rel="correct" />
+                                <input name="a" title="Click if this is true." class="answer" id="answer1" type="radio" data="correct" />
                                 <label for="answer1" class="btn">Some have the power to levy fines and prison sentences, but all can provide advice and support.</label>
                             </li>
                             <li>
-                                <input name="a" title="Click if this is true." class="answer" id="answer2" type="radio" rel="incorrect" />
+                                <input name="a" title="Click if this is true." class="answer" id="answer2" type="radio" data="incorrect" />
                                 <label for="answer2" class="btn">All of them can provide software to help supervised companies carry out due diligence.</label>
                             </li>
                             <li>
-                                <input name="a" title="Click if this is true." class="answer" id="answer3" type="radio" rel="incorrect" />
+                                <input name="a" title="Click if this is true." class="answer" id="answer3" type="radio" data="incorrect" />
                                 <label for="answer3" class="btn">All of them have the power to levy fines and prisons sentences, and are not there to provide advice.</label>
                             </li>
                             <li>
-                                <input name="a" title="Click if this is true." class="answer" id="answer4" type="radio" rel="incorrect" />
+                                <input name="a" title="Click if this is true." class="answer" id="answer4" type="radio" data="incorrect" />
                                 <label for="answer4" class="btn">They can only advise organisations on best practice, for example by carrying out an audit.</label>
                             </li>
                         </ul>
-                        <div class="button-wrap-right marginRightAlign">
-							<input type="submit" name="submit" class="action-button questionBtn" disabled="disabled" value="Submit" />
-							<input type="submit" name="submit" class="action-button inactive questionNext" disabled="disabled" value="Next" />
-						</div>
+                        <div class="float-right">
+                            <input type="submit" name="submit" class="btn action-button questionBtn" disabled="disabled" value="Submit" />
+                            <input type="submit" name="submit" class="btn action-button inactive questionNext" disabled="disabled" value="Next" />
+                        </div>
                     </div>
                     <div class="questionBox inactive">
                         <h2>Q2. Which of the following is true of the role of Supervisory Authorities (SA)?</h2>
                         <ul>
                             <li>
-                                <input name="a" title="Click if this is true." class="answer" id="answer5" type="radio" rel="correct" />
+                                <input name="b" title="Click if this is true." class="answer" id="answer5" type="radio" data="correct" />
                                 <label for="answer5" class="btn">Some have the power to levy fines and prison sentences, but all can provide advice and support.</label>
                             </li>
                             <li>
-                                <input name="a" title="Click if this is true." class="answer" id="answer6" type="radio" rel="incorrect" />
+                                <input name="b" title="Click if this is true." class="answer" id="answer6" type="radio" data="incorrect" />
                                 <label for="answer6" class="btn">All of them can provide software to help supervised companies carry out due diligence.</label>
                             </li>
                             <li>
-                                <input name="a" title="Click if this is true." class="answer" id="answer7" type="radio" rel="incorrect" />
+                                <input name="b" title="Click if this is true." class="answer" id="answer7" type="radio" data="incorrect" />
                                 <label for="answer7" class="btn">All of them have the power to levy fines and prisons sentences, and are not there to provide advice.</label>
                             </li>
                             <li>
-                                <input name="a" title="Click if this is true." class="answer" id="answer8" type="radio" rel="incorrect" />
+                                <input name="b" title="Click if this is true." class="answer" id="answer8" type="radio" data="incorrect" />
                                 <label for="answer8" class="btn">They can only advise organisations on best practice, for example by carrying out an audit.</label>
                             </li>
 
                         </ul>
-					    <div class="button-wrap-right marginRightAlign">
-							<input type="submit" name="submit" class="action-button questionBtn" disabled="disabled" value="Submit" />
-							<input type="submit" name="submit" class="action-button inactive questionNext" disabled="disabled" value="Next" />
-						</div>
+                        <div class="float-right">
+                            <input type="submit" name="submit" class="btn action-button questionBtn" disabled="disabled" value="Submit" />
+                            <input type="submit" name="submit" class="btn action-button inactive questionNext" disabled="disabled" value="Next" />
+                        </div>
                     </div>
                     <div class="questionBox inactive">
                     <h2>Q3. The circumstances around a potential new customer lead you to believe the risk of money laundering might be higher than normal. Which type of Customer Due Diligence process would you follow?</h2>
                     <ul>
                         <li>
-                            <input name="a" title="Click if this is true." class="answer" id="answer9" type="radio" value="on" rel="incorrect" />
+                            <input name="c" title="Click if this is true." class="answer" id="answer9" type="radio" value="on" data="incorrect" />
                             <label for="answer9" class="btn">Simplified Customer Due Diligence.</label>
                         </li>
                         <li>
-                            <input name="a" title="Click if this is true." class="answer" id="answer10" type="radio" value="on" rel="incorrect" />
+                            <input name="c" title="Click if this is true." class="answer" id="answer10" type="radio" value="on" data="incorrect" />
                             <label for="answer10" class="btn">Standard Customer Due Diligence. </label>
                         </li>
                         <li>
-                            <input name="a" title="Click if this is true." class="answer" id="answer11" type="radio" value="on" rel="correct" />
+                            <input name="c" title="Click if this is true." class="answer" id="answer11" type="radio" value="on" data="correct" />
                             <label for="answer11" class="btn">Enhanced Customer Due Diligence. </label>
                         </li>
-					</ul>
-					 <div class="button-wrap-right marginRightAlign">
-						<input type="submit" name="submit" class="action-button questionBtn" disabled="disabled" value="Submit" />
-						<input type="submit" name="submit" class="action-button inactive questionNext" disabled="disabled" value="Next" />
-					</div>
+                    </ul>
+                     <div class="float-right">
+                        <input type="submit" name="submit" class="btn action-button questionBtn" disabled="disabled" value="Submit" />
+                        <input type="submit" name="submit" class="btn action-button inactive questionNext" disabled="disabled" value="Next" />
+                    </div>
                     </div>
                     <div class="questionBox inactive">
                         <h2>Q4. A PEP who was previously accepted as a client makes an unusual transaction. What should you do?</h2>
                         <ul>
                             <li>
-                                <input name="a" title="Click if this is true." class="answer" id="answer12" type="radio" rel="incorrect" />
+                                <input name="d" title="Click if this is true." class="answer" id="answer12" type="radio" data="incorrect" />
                                 <label for="answer12" class="btn">Ignore it, as they were previously checked and approved.</label>
                             </li>
                             <li>
-                                <input name="a" title="Click if this is true." class="answer" id="answer13" type="radio" rel="correct" />
+                                <input name="d" title="Click if this is true." class="answer" id="answer13" type="radio" data="correct" />
                                 <label for="answer13" class="btn">Contact the Money Laundering Reporting Officer.</label>
                             </li>
                             <li>
-                                <input name="a" title="Click if this is true." class="answer" id="answer14" type="radio" rel="incorrect" />
+                                <input name="d" title="Click if this is true." class="answer" id="answer14" type="radio" data="incorrect" />
                                 <label for="answer14" class="btn">Call the client to ask about the transaction.</label>
                             </li>
                         </ul>
-					 <div class="button-wrap-right marginRightAlign">
-						<input type="submit" name="submit" class="action-button questionBtn" disabled="disabled" value="Submit" />
-						<input type="submit" name="submit" class="action-button inactive questionNext" disabled="disabled" value="Next" />
-					</div>
+                     <div class="float-right">
+                        <input type="submit" name="submit" class="btn action-button questionBtn" disabled="disabled" value="Submit" />
+                        <input type="submit" name="submit" class="btn action-button inactive questionNext" disabled="disabled" value="Next" />
+                    </div>
                     </div>
                      <div class="questionBox inactive">
                         <h2>Q5. Which of the following is <strong>not</strong> a role of the MLRO? (There are 3 correct answers)</h2>
                         <ul>
                             <li>
-                                <input name="a" title="Click if this is true." class="answer" id="answer15" type="checkbox" rel="correct" />
+                                <input name="e" title="Click if this is true." class="answer" id="answer15" type="checkbox" data="correct" />
                                 <label for="answer15" class="btn">To visit the suspect's premises and interview them about their criminal activities.</label>
                             </li>
                             <li>
-                                <input name="a" title="Click if this is true." class="answer" id="answer16" type="checkbox" rel="correct" />
+                                <input name="e" title="Click if this is true." class="answer" id="answer16" type="checkbox" data="correct" />
                                 <label for="answer16" class="btn">To act as the contact point for the HMRC and the NCA.</label>
                             </li>
                             <li>
-                                <input name="a" title="Click if this is true." class="answer" id="answer17" type="checkbox" rel="incorrect" />
+                                <input name="e" title="Click if this is true." class="answer" id="answer17" type="checkbox" data="incorrect" />
                                 <label for="answer17" class="btn">To conduct internal investigations by looking at information and carrying out interviews within an organisation.</label>
                             </li>
                             <li>
-                                <input name="a" title="Click if this is true." class="answer" id="answer18" type="checkbox" rel="correct" />
+                                <input name="e" title="Click if this is true." class="answer" id="answer18" type="checkbox" data="correct" />
                                 <label for="answer18" class="btn">To visit the suspect's premises and interview them about their criminal activities.</label>
                             </li>
                         </ul>
-					 <div class="button-wrap-right marginRightAlign">
-						<input type="submit" name="submit" class="action-button questionBtn" disabled="disabled" value="Submit" />
-						<input type="submit" name="submit" class="action-button inactive questionNext" disabled="disabled" value="Next" />
-					</div>
+                         <div class="float-right">
+                            <input type="submit" name="submit" class="btn action-button questionBtn" disabled="disabled" value="Submit" />
+                            <input type="submit" name="submit" class="btn action-button inactive questionNext" disabled="disabled" value="Next" />
+                        </div>
                     </div>
                     <div class="questionBox inactive">
                         <h2>Q6. Which one of the following is <strong>not</strong> an example of tipping off?</h2>
                         <ul>
                             <li>
-                                <input name="a" title="Click if this is true." class="answer" id="answer19" type="radio" rel="incorrect" />
+                                <input name="f" title="Click if this is true." class="answer" id="answer19" type="radio" data="incorrect" />
                                 <label for="answer19" class="btn">Telling a potential client that you can&rsquo;t talk to them whilst they are being investigated.</label>
                             </li>
                             <li>
-                                <input name="a" title="Click if this is true." class="answer" id="answer20" type="radio" rel="incorrect" />
+                                <input name="f" title="Click if this is true." class="answer" id="answer20" type="radio" data="incorrect" />
                                 <label for="answer20" class="btn">Telling an existing client that a recent transaction has triggered an internal money laundering investigation.</label>
                             </li>
                             <li>
-                                <input name="a" title="Click if this is true." class="answer" id="answer21" type="radio" rel="incorrect" />
+                                <input name="f" title="Click if this is true." class="answer" id="answer21" type="radio" data="incorrect" />
                                 <label for="answer21" class="btn">Asking other suppliers if they have had any money laundering concerns about a client you both supply.</label>
                             </li>
                             <li>
-                                <input name="a" title="Click if this is true." class="answer" id="answer22" type="radio" rel="correct" />
+                                <input name="f" title="Click if this is true." class="answer" id="answer22" type="radio" data="correct" />
                                 <label for="answer22" class="btn">Asking a potential client for more information about the reasons for a transaction.</label>
                             </li>
                         </ul>
-					 <div class="button-wrap-right marginRightAlign">
-						<input type="submit" name="submit" class="action-button questionBtn" disabled="disabled" value="Submit" />
-						<input type="submit" name="submit" class="action-button inactive questionNext" disabled="disabled" value="Next" />
-					</div>
+                     <div class="float-right">
+                        <input type="submit" name="submit" class="btn action-button questionBtn" disabled="disabled" value="Submit" />
+                        <input type="submit" name="submit" class="btn action-button inactive questionNext" disabled="disabled" value="Next" />
+                    </div>
                     </div>
                     <div class="questionResult inactive">
-                    	<div class="circle width20 float-left" id="passRateCircle"></div>
-                    	<div class="float-left width80">
+                        <div class="lessonQuestionsCircle width20 float-left" id="passRateCircle"></div>
+                        <div class="float-left width65">
 
-	                        <div class="nextLessonMsg inactive">
-	            
-	                        <p><strong>You answered <span class="correctAnswers"></span> of <span class="questionCount"></span> questions correctly.</strong></p>
-	                        <p>You have completed this section of the lesson and may now proceed to the Final Test.</p>
-	                        </div>
-	                        <div class="redoLessonMsg inactive">
-	               
-	                        <p><strong>You answered <span class="correctAnswers"></span> of <span class="questionCount"></span> questions correctly.</strong></p>
-	                        <p>You have failed to complete this section of the lesson. Please review lesson and try again.</p>
-	                 
-	                          <input type="submit" name="submit" class="submit verify action-button" value="Review Lesson" onclick="parent.currentScreenNo = parent.noOfScreens-parent.noOfScreens; parent.goNext(true);return false;"/></div>
+                            <div class="nextLessonMsg inactive">
+                
+                            <p><strong>You answered <span class="correctAnswers"></span> of <span class="questionCount"></span> questions correctly.</strong></p>
+                            <p>You have completed this section of the lesson and may now proceed to the Final Test.</p>
+                            </div>
+                            <div class="redoLessonMsg inactive">
+                   
+                            <p><strong>You answered <span class="correctAnswers"></span> of <span class="questionCount"></span> questions correctly.</strong></p>
+                            <p>You have failed to complete this section of the lesson. Please review lesson and try again.</p>
+                     
+                              <input type="submit" name="submit" class="btn submit action-button" value="Review Lesson" onclick="parent.currentScreenNo = parent.noOfScreens-parent.noOfScreens; parent.goNext(true);return false;"/></div>
                         
 
-					  	</div>
-  						
+                        </div>
+                        
                     </div>
                 </div>
                 <div class="cleaner"></div>
@@ -531,7 +229,10 @@ Otherwise, please continue.</p>
   
         parent.$('.introFx', frame).introFx({
             'afterFx': function() {
-                parent.$(".questionBox", frame).questionSlider2({'modalSubmit': true, 'passRate': 5, 'buttonLabel': true});
+                parent.$(".questionBox", frame).questionSlider({'modalSubmit': true, 
+                                                                'passRate': 5, 
+                                                                'buttonTab': true
+                                                               });
             }
         });
     }
