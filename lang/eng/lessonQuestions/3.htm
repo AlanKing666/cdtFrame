@@ -11,7 +11,6 @@
     <link rel="stylesheet" href="../../../SCOFunctions/featherlight.min.css" type="text/css" media="screen" />
     <script src="../../../SCOFunctions/jquery.min.js" type="text/javascript"></script>
     <script src="../../../SCOFunctions/featherlight.min.js" type="text/javascript"></script>
-    <script src="../../../SCOFunctions/circles.min.js" type="text/javascript"></script>
 </head>
 
 <body id="screenBody" onload="parent.onFrameLoad();">
@@ -35,14 +34,7 @@ Otherwise, please continue.</p>
         <div class="whiteBox">
             <div class="boxContent">
                 <div class="t"></div>
-                    <ul id="progressbar">
-                        <li class="active size6"></li>
-                        <li class="size6"></li>
-                        <li class="size6"></li>
-                        <li class="size6"></li>
-                        <li class="size6"></li>
-                        <li class="size6"></li>
-                  </ul>
+                    <ul id="progressbar" class="counter"></ul>
                  <div style="clear:both"></div>
                 <div class="questionSlider optionLabels">
                     <div class="questionBox">
@@ -189,23 +181,22 @@ Otherwise, please continue.</p>
                     </div>
                     </div>
                     <div class="questionResult inactive">
-                        <div class="lessonQuestionsCircle width20 float-left" id="passRateCircle"></div>
-                        <div class="float-left width65">
+    
+                      
 
-                            <div class="nextLessonMsg inactive">
-                
-                            <p><strong>You answered <span class="correctAnswers"></span> of <span class="questionCount"></span> questions correctly.</strong></p>
-                            <p>You have completed this section of the lesson and may now proceed to the Final Test.</p>
-                            </div>
-                            <div class="redoLessonMsg inactive">
-                   
-                            <p><strong>You answered <span class="correctAnswers"></span> of <span class="questionCount"></span> questions correctly.</strong></p>
-                            <p>You have failed to complete this section of the lesson. Please review lesson and try again.</p>
-                     
-                              <input type="submit" name="submit" class="btn submit action-button" value="Review Lesson" onclick="parent.currentScreenNo = parent.noOfScreens-parent.noOfScreens; parent.goNext(true);return false;"/></div>
+                    <div class="nextLessonMsg inactive">
+                        <p><strong>You answered <span class="correctAnswers"></span> of <span class="questionCount"></span> questions correctly.</strong></p>
+                        <p>You have completed this section of the lesson and may now proceed to the Final Test.</p>
+                    </div>
+                    <div class="redoLessonMsg inactive">
+               
+                        <p><strong>You answered <span class="correctAnswers"></span> of <span class="questionCount"></span> questions correctly.</strong></p>
+                        <p>You have failed to complete this section of the lesson. Please review lesson and try again.</p>
+                 
+                          <input type="submit" name="submit" class="btn submit action-button" value="Review Lesson" onclick="parent.currentScreenNo = parent.noOfScreens-parent.noOfScreens; parent.goNext(true);return false;"/></div>
                         
 
-                        </div>
+                 
                         
                     </div>
                 </div>
@@ -230,8 +221,7 @@ Otherwise, please continue.</p>
         parent.$('.introFx', frame).introFx({
             'afterFx': function() {
                 parent.$(".questionBox", frame).questionSlider({'modalSubmit': true, 
-                                                                'passRate': 5, 
-                                                                'buttonTab': true
+                                                                'passRate': 5
                                                                });
             }
         });

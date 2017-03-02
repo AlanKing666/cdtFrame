@@ -35,9 +35,7 @@
 
                 <div class="memory-wrap" >
                 
-                <div class="memory-countdown">
-                    <div class="circle" id="memoryCircle"></div>
-                </div>
+                <ul id="progressbar" class="countdown"></ul>
                 
                 <div class="memory-game">
                       <div class="modalContent">
@@ -259,11 +257,7 @@
             parent.$('.introFx', frame).introFx({
                 'afterFx': function() {
                     parent.$(".card", frame).memorySort({attemptLives: 4});
-//                   $('a.fl').featherlight({
-//                        targetAttr: 'href'
-//                    });
-                    //$.featherlight($('#targetElement'));
-                    //$.featherlight({iframe: '//player.vimeo.com/video/33110953?&autoplay=1', iframeWidth: 500, iframeHeight: 300});
+
                     
                     
                     

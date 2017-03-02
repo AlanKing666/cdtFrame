@@ -11,8 +11,7 @@
     <link rel="stylesheet" href="../../../SCOFunctions/featherlight.min.css" type="text/css" media="screen" />
     <script src="../../../SCOFunctions/jquery.min.js" type="text/javascript"></script>
     <script src="../../../SCOFunctions/featherlight.min.js" type="text/javascript"></script>
-    <script src="../../../SCOFunctions/circles.min.js" type="text/javascript"></script>
-</head>
+ </head>
 
 
 <body id="screenBody" onload="parent.onFrameLoad();">
@@ -21,22 +20,13 @@
         <div class="whiteBox">
             <div class="boxContent">
                 <div class="t"></div>
+
                 <h1 class="width50">Memorize Hazard Signs</h1>
-                <p>Can you remember the hazard signs? </p>
-
-                <dl class="noteExpand expandMiddle" style="left: 390px; top: 10px; position: absolute; z-index: 3;">
-                    <dd class="interact_img"></dd><dt>Interact</dt>
-                    <dd>Select item from upper tier to match
-                        <br />with item from lower tier.</dd>
-                </dl>
-
-                <br />
+                <p>Can you remember the hazard signs? See if you can memorize each hazard sign. Select item from upper tier to match with item from lower tier. </p>
 
                 <div class="memory-wrap">
-                    
-                    <div class="memory-countdown">
-                        <div class="circle" id="memoryCircle"></div>
-                    </div>
+
+                <ul id="progressbar" class="countdown"></ul>
                     
                     <div class="memory-game">
                         <div class="modalContent">

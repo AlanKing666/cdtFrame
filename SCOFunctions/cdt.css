@@ -2396,21 +2396,41 @@ p#timer.olderStyle{
 
 /* progressbar */
 #progressbar {
+    position: relative;
+    float: none;
+ 	display:none;
+}
+
+#progressbar.countdown li {
+	background:none;
+	/* space between fix */
+	margin-right:-1px;
+}
+
+#progressbar.countdown li:after {
+    content: " ";
+    white-space: pre;
+    width: 100%;
+ 	display: block;
+    background: #ececec;
+    height:5px;
+ }
+
+#progressbar.countdown li.active:after {
+	background: #f69898;
+}
+
+#progressbar.counter{
 	/*CSS counters to number the steps*/
 	counter-reset: step;
 }
-#progressbar li {
-	list-style-type: none;
-	text-align:center;
-	font-size: 90%;
-	list-style-type: none;
-	float: left;
-	padding: 0px 0px 8px 0px;
-}
 
-#progressbar li:before {
+#progressbar.counter li:before {
 	content: counter(step);
 	counter-increment: step;
+}
+
+#progressbar.counter li:before {
 	width: 100%;
 	line-height: 20px;
 	display: block;
@@ -2420,42 +2440,67 @@ p#timer.olderStyle{
 	font-weight:bold;
 }
 
-#progressbar li:first-child:before{
+#progressbar li {
+	list-style-type: none;
+	text-align:center;
+	font-size: 90%;
+	list-style-type: none;
+	float: left;
+	padding: 0px 0px 8px 0px;
+}
+
+#progressbar.counter li:first-child:before,
+#progressbar.countdown li:first-child:after{
 	border-top-left-radius: 2em;
 	border-bottom-left-radius: 2em;
 }
 
-#progressbar li:last-child:before{
+#progressbar.counter li:last-child:before,
+#progressbar.countdown li:last-child:after{
 	border-top-right-radius: 2em;
 	border-bottom-right-radius: 2em;
 }
 
-#progressbar li.active:before,  #progressbar li.active:after{
-color:#fff;
+#progressbar.counter li.active:before,  #progressbar.counter li.active:after,
+#progressbar.countdown li.active:before,  #progressbar.countdown li.empty:after{
+ color:#fff;
+ background-size: 200% 100%;
+ transition: all 0.5s ease-in-out;
+}
+
+#progressbar.counter li.active:before,  #progressbar.counter li.active:after{
 background-image: linear-gradient(to left,
                                       #6ec0e6,
                                       #6ec0e6 50%,
                                       transparent 50%,
                                       transparent);
  background-position: -100% 0;
- background-size: 200% 100%;
- transition: all 0.5s ease-in-out;
 }
 
-#progressbar li.correct:before {
+#progressbar.countdown li.active:before,  #progressbar.countdown li.empty:after{
+background:#ffe9e9\9;
+background-image: linear-gradient(to left,
+                                      #ffe9e9,
+                                      #ffe9e9 50%,
+                                      transparent 50%,
+                                      transparent);
+ background-position: 100% -100%;
+}
+
+#progressbar.counter li.correct:before{
 	content: '\2713';
 	background: #d8f6c9;
 	color:#6dbe45;
 }
 
-#progressbar li.incorrect:before {
+#progressbar.counter li.incorrect:before{
 	content: ' \2716';
 	background: #ffe9e9;
 	color: #f69898;
 }
 
-#progressbar li.correct{color: #6dbe45;}
-#progressbar li.incorrect{color: #f69898;}
+#progressbar.counter li.correct{color: #6dbe45;}
+#progressbar.counter li.incorrect{color: #f69898;}
 
 /* Label styles for question activity */
 div.optionLabels ul li {
@@ -2497,8 +2542,18 @@ div.optionLabels ul li label.btn.isSelected {
     cursor: default;	
 }
 
-div.optionLabels, div.questionResult{
+div.optionLabels{
 	margin-top: 15px;
+}
+
+div.questionResult{
+	margin-top: 15px;
+	min-height: 20px;
+    padding: 19px;
+    margin-right: 5px;
+    background-color: #f5f5f5;
+	border-radius: 6px;
+  	box-shadow: inset 0 1px 1px rgba(0,0,0,.05);
 }
 
 /* diabled labels state */
@@ -2515,22 +2570,6 @@ label.btn.label-disabled:hover{
     cursor: default;	
 }
 
-/* lesson question result percentage */
-.lessonQuestionsCircleText {
-    font-weight: bold;
-    position: absolute;
-    top: 6px;
-    text-align: center;
-    width: 100%;
-    font-size: 18px;
-    line-height: 88px;
-    font-family: Verdana, Geneva, sans-serif;
-}
-
-.lessonQuestionsCircle{
-	margin:10px 10px 0px 20px;
-}
-
 /* float classes */
 .float-right{float:right;}
 .float-left{float:left;}
@@ -2543,7 +2582,7 @@ label.btn.label-disabled:hover{
     height: 180px;
     float: left;
     /* stop show animation from exceeding boundaries*/
-    width: 510px; 
+    width: 625px;
     -webkit-transform-style: preserve-3d;
               transform-style: preserve-3d;
     -webkit-perspective: 500px;
@@ -2673,13 +2712,13 @@ label.btn.label-disabled:hover{
         background: #bcffcc;
     }
     100% {
-        background-color:#e9eaec;
+        background-color:#ececec;
     }
 }
 
 .card.cardBottom .inside.matched,
 .card.cardTop .inside.matched{
-    background-color:#e9eaec;
+    background-color:#ececec;
 }
 
 .card.cardBottom .inside.matched{
@@ -2699,26 +2738,6 @@ label.btn.label-disabled:hover{
    -moz-transition: opacity .25s ease-in-out;
    -webkit-transition: opacity .25s ease-in-out;
 }
-
-/* SVG 'lives' countdown */
-.memory-countdown {
-    position: relative;
-    float: left;
-    padding: 50px 10px 0px 10px;
-    display:none;
-}
-
-.memory-countdown .circleText{
-    font-weight:bold;
-    position: absolute;
-    top: 0px;
-    text-align: center;
-    width: 100%;
-    font-size: 20px;
-    line-height: 80px;
-    font-family: Verdana, Geneva, sans-serif;
-}
-
 
 /*format modal popup content*/
 .modalContent{
@@ -2758,16 +2777,25 @@ label.btn.label-disabled:hover{
     padding: 10px 10px 0;
 }
 
-/* added/overwrite custom rounded corners and margins on featherlight modal box (featherlight.min.css) */
 /* additional/overwrite custom styles on featherlight modal box (featherlight.min.css) */
 body#screenBody .featherlight .featherlight-content,
-body#screenBody .featherlight .featherlight-close-icon {
+body#screenBody .featherlight .featherlight-close-icon,
+body#screenBody .featherlight {
     border-radius: 10px;
 }
 body#screenBody .featherlight .featherlight-content{
 	margin-left: 10px;
     margin-right: 10px;
 }
+
+
+
+
+
+
+
+
+/*custom*/
 
 /*iframe video*/
 body#screenBody .featherlight-iframe .featherlight-content {
