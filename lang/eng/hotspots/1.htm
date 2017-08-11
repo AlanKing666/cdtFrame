@@ -160,8 +160,7 @@
 
 
 .focus-container div.checkFalse{
-    margin: 10px 0px 0px 28px;
-    font-size: 55px;
+    margin: 46px 0px 0px 23px;
 }
     
 /*
@@ -174,16 +173,84 @@
 
 /*do this make reuse*/
 .checkFalse{
+/*
     position:absolute;
     color: #ed3f3f;
-    font-size: 30px;
+*/
+/*    font-size: 30px;*/
+/*    font-weight: 300;*/
+    
+    
+    
+/*
+    position: absolute;
+    height: 2px;
+    width: 100%;
+    top: 50%;
+    left: 0;
+    margin-top: -1px;
+    background: #ed3f3f;
+*/
+    
+    position: relative;
+    display: inline-block;
+    width: 55px;
+    height: 55px;
+/*    overflow: hidden;*/
+/*    border:1px solid green;*/
 }
     
-.checkFalse:before{
-    content: '\2716';
+/*
+.checkFalse::before, .checkFalse::after {
+    height: 12px;
+    margin-top: -6px;
 }
+*/
     
+.checkFalse::before{
+    -moz-transform: rotate(45deg);
+    -o-transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+    transform: rotate(45deg);  
+    
+/*
+    -webkit-background-clip:padding-box; 
+    background-clip:padding-box; 
+*/
 
+
+}
+    
+.checkFalse::after{
+    -moz-transform:scaleX(1) rotate(-45deg);
+    -o-transform:scaleX(1) rotate(-45deg);
+    -webkit-transform:scaleX(1) rotate(-45deg);
+    transform:scaleX(1) rotate(-45deg);  
+    
+/*
+    -webkit-background-clip:padding-box; 
+    background-clip:padding-box; 
+*/
+
+
+}
+    
+.checkFalse::before, .checkFalse::after{
+/*    content: '\2716';*/
+    content: '';
+    position: absolute;
+    height: 8px;
+    width: 100%;
+/*
+    top: 75%;
+    left: 0;
+*/
+/*    margin-top: -1px;*/
+    background: #ed3f3f;
+
+
+
+}
     
 .checkTrue{
     position:absolute;
@@ -301,17 +368,16 @@ span.attempts
     background: -ms-radial-gradient(center, ellipse cover,  #666 0,#666 48px, #666 49px); 
 }
 
-.closeWindow span.close-icon:hover{background: #444}
+.closeWindow span.close-icon:hover{
+    background: #444;
+    background: -ms-radial-gradient(center, ellipse cover,  #666 0,#666 48px, #444 49px); 
+}
 
 .closeWindow span.close-icon.left-close{
     left:-5px;
 }
     
-#hotspotMinorHelpWindow .closeWindow span.close-icon {
-    border: 2px solid #ffffff;
- }
-    
-#hotspotMinorHelpWindow h1 {color: #666}  
+
 
 .whiteboxFeedback #correct span.close-icon,
 .whiteboxFeedback #incorrect span.close-icon,
@@ -333,6 +399,7 @@ span.attempts
     z-index: 500;
     width: auto;
     margin: 170px 225px 0px 225px;
+    
 }
     
 #endWindow.focus-end-window p{margin : 0; width:200px}
@@ -347,6 +414,36 @@ span.attempts
 .box-shadow-01 {
   box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
 }
+    
+img.hotspot-reveal{
+    display:none;
+    position:absolute;
+    
+}
+    
+/*    help window*/
+
+#hotspotMinorHelpWindow .closeWindow span.close-icon {border: 2px solid #fff}
+#hotspotMinorHelpWindow h1 {color: #666} 
+#hotspotMinorHelpWindow.focus-help-window{
+  
+ 
+ 
+    height: auto;
+    left: auto;
+    padding: 5px;
+    position: absolute;
+    top: auto;
+    width: auto;
+    z-index: 500;
+    padding: 20px 20px 0;
+/*    padding: 10px 10px 0;*/
+    margin: 120px 180px 0px 180px;
+    border-bottom: 10px solid transparent; 
+}    
+    
+    
+    
 
 </style>
 
@@ -408,12 +505,18 @@ span.attempts
     </div>
 -->
     
-    <div class="rounded whiteboxFeedback box-shadow-01" id="hotspotMinorHelpWindow">
-       <a title="Close" class="closeWindow pulse animated infinite" href="#"><span class="close-icon">&#10005;</span></a>
-        <h1>Out of Attempts</h1> It looks like you are unable to find the other items. Please continue by clicking on the 'X' at the top right corner of this box to display remaining items.
+    <div class="rounded whiteboxFeedback box-shadow-01 focus-help-window" id="hotspotMinorHelpWindow">
+<!--       <a title="Close" class="closeWindow pulse animated infinite" href="#"><span class="close-icon">&#10005;</span></a>-->
+        <h1>Out of Attempts</h1> 
+        <p>It looks like you are unable to find all the items. Please continue by clicking the 'Reveal' button or try to find the remaining items by click 'Retry'.</p>
+        <div class="float-right">
+            <input type="button" name="retry" class="btn retry action-button" value="Retry" /> 
+            <input type="button" name="reveal" class="btn reveal action-button" value="Reveal" />
+        </div>
     </div>
     
     <div id="endWindow" class="rounded focus-end-window box-shadow-01">
+     <div title="Close" class="closeWindow"><span class="close-icon">&#10005;</span></div>
       <p class="found-all-message">You found them all. Please continue.</p>
       <p class="continue-message">Please continue.</p>
     </div>
@@ -433,8 +536,9 @@ span.attempts
 <!--                <span class="x"></span>-->
             </div>
         </div>
-
+        <img class="hotspot-reveal"  alt="" src="../../../media/hotspot-security-reveal.png" />
         <img width="675" height="390" class="introFx fx1 bg-hotspot" id="hotspotImage" alt="computer room" src="../../../media/hs_normal.png" />
+        
     </div>
     <div class="focusIncorrect">
 <!--        <div title="Close" class="hotspotMinorCloseWindow">close<span></span></div>-->
